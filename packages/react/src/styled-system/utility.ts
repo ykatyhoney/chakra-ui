@@ -25,7 +25,7 @@ function normalizeConfig(config: UtilityConfig) {
   )
 }
 
-export function createUtilty(options: Options) {
+export function createUtility(options: Options) {
   const configs = normalizeConfig(options.config)
   const tokens = options.tokens
 
@@ -101,6 +101,11 @@ export function createUtilty(options: Options) {
       if (!propertyConfig) continue
       assignPropertyType(property, propertyConfig)
     }
+  }
+
+  const addPropertyType = (property: string, type: string[]) => {
+    const set = propTypes.get(property) ?? new Set()
+    propTypes.set(property, new Set([...set, ...type]))
   }
 
   const getTypes = () => {
@@ -217,6 +222,7 @@ export function createUtilty(options: Options) {
     resolveShorthand,
     register,
     getTypes,
+    addPropertyType,
   }
 
   return instance

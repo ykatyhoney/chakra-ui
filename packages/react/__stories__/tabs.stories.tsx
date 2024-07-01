@@ -17,7 +17,7 @@ export default {
 }
 
 export const Variants = () => {
-  const recipe = useSlotRecipe("Tabs")
+  const recipe = useSlotRecipe("tabs")
   return (
     <PlaygroundTable>
       <thead>
@@ -76,7 +76,7 @@ export const Variants = () => {
 }
 
 export const Sizes = () => {
-  const recipe = useSlotRecipe("Tabs")
+  const recipe = useSlotRecipe("tabs")
   return (
     <PlaygroundTable>
       <thead>
@@ -185,7 +185,7 @@ const Interval = () => {
 }
 
 export const withLazyTabs = () => (
-  <Tabs.Root defaultValue="1" lazyMount>
+  <Tabs.Root defaultValue="1" lazyMount unmountOnExit>
     <Tabs.List>
       <Tabs.Trigger value="1">Interval 1</Tabs.Trigger>
       <Tabs.Trigger value="2">Interval 2</Tabs.Trigger>
